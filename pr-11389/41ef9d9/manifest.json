@@ -1,0 +1,56 @@
+{
+  "summary": "这次修改把 OceanBase Oracle 也纳入了 Oracle 风格的 ROWID 处理：查询结果映射、隐藏主键补投影、以及可编辑结果的行标识绑定都会按 `ROWIDTOCHAR(ROWID)` / `__DBX_ROWID` 规则工作，避免把内部列当成物理列投影。对显式选出的 ROWID、物理 `rowid` 列、以及已有真实主键的情况也补了边界处理。",
+  "scenes": [
+    {
+      "title": "打开查询页与历史",
+      "shots": [
+        {
+          "file": "01-home.png",
+          "caption": "应用首页，查看左侧连接与历史查询入口",
+          "width": 2880
+        },
+        {
+          "file": "02-products-grid.png",
+          "caption": "打开产品表后的数据网格",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "03-history-view.png",
+          "caption": "查看历史查询列表",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "查看查询结果映射",
+      "shots": [
+        {
+          "file": "04-events-grid.png",
+          "caption": "打开大表后的数据网格，查看结果列与行标识位置",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "打开查询页与历史 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开查询页与历史 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开查询页与历史 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"customers\" (0 in the page)",
+    "打开查询页与历史 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开查询页与历史 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"products\" (0 in the page)",
+    "查看查询结果映射 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "查看查询结果映射 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"events\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到“GUI 点击验收及截图/录屏尚未完成”与本次要求的界面验证无关；另外没有新增驱动、连接、保存 API 或 AI/插件功能，这些若按描述理解都不是本 PR 的前端变化。",
+  "unseen": "沙盒里没有 OceanBase Oracle 连接，不能直接在界面里验证该数据库类型下的真实查询重写和结果映射；这里只能展示 SQLite 页面位置，无法复现该 dialect 的实际行为。",
+  "interactive": true
+}

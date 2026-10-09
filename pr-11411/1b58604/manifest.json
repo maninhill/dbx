@@ -1,0 +1,37 @@
+{
+  "summary": "这次修改调整了 SQL 模板生成逻辑里 INSERT 语句的字符串占位符：会按列声明长度截断列名部分，保留 `_value` 后缀，避免生成的模板本身超出列长。对长度信息缺失的列保持原样，同时新增了对应单测覆盖这些边界情况。",
+  "scenes": [
+    {
+      "title": "在 SQL 模板里看占位符长度",
+      "shots": [
+        {
+          "file": "01-customers-grid.png",
+          "caption": "查看 customers 表的数据网格",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "02-more-menu.png",
+          "caption": "查看更多操作菜单",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "在 SQL 模板里看占位符长度 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "在 SQL 模板里看占位符长度 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "在 SQL 模板里看占位符长度 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "在 SQL 模板里看占位符长度 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "在 SQL 模板里看占位符长度 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"customers\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里举的是右键表后走 Generate SQL → INSERT 的操作和 Oracle 报错场景，但这个沙盒只有 SQLite，且截图中没有该右键生成 INSERT 的实际数据库页面可直接复现 Oracle 超长错误；另外 PR 说“修复后执行成功”是后端数据库行为，这里无法展示 Oracle 真实执行结果。",
+  "unseen": "无法展示 Oracle 11g 的 `VARCHAR2(n)` 超长报错与执行成功对比，因为沙盒没有 Oracle/服务器数据库，只能看到模板生成逻辑在前端代码中的变化。",
+  "interactive": true
+}

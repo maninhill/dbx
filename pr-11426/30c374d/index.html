@@ -1,0 +1,18 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>#11426 界面预览 · 30c374d</title>
+<style>:root{color-scheme:light dark;--bg:#f6f6f7;--fg:#1d1d1f;--muted:#6e6e73;--card:#fff;--line:#e5e5ea}
+@media (prefers-color-scheme:dark){:root{--bg:#111113;--fg:#f2f2f4;--muted:#9a9aa0;--card:#1c1c1f;--line:#2c2c30}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 -apple-system,"Segoe UI","PingFang SC","Noto Sans CJK SC",sans-serif}
+main{max-width:1200px;margin:0 auto;padding:28px 16px 60px}h1{font-size:20px;margin:0 0 4px}.m{color:var(--muted);font-size:13px;margin:0 0 20px}
+.warn{margin:0 0 20px;padding:10px 14px;border:1px solid #c0392b;border-radius:10px;background:rgba(192,57,43,.07);color:#c0392b;font-size:14px}
+figure.shaky img{border-color:#c0392b}
+video,img{display:block;width:100%;border-radius:10px;border:1px solid var(--line);background:var(--card)}figure{margin:0 0 28px}figcaption{color:var(--muted);font-size:13px;margin-top:8px}
+a{color:inherit}</style>
+<main><h1>#11426 界面预览</h1><p class="m">commit 30c374d · <a href="https://github.com/t8y2/dbx/pull/11426">回到 PR</a> · 这次改动只影响手动事务提交完成后的会话清理逻辑：如果用户在提交尚未返回时切换了模式/目标并开启了新的事务，旧提交结束时不再误删新事务会话和脏标记。界面上可观察的点是：事务状态在目标切换后提交完成时应保留为新会话，而不是回到空状态。</p>
+<p class="warn">⚠️ 这次录制有 7 步没能按计划执行；带 ⚠️ 的截图拍摄于步骤失败之后，画面未必是说明文字所描述的状态。</p>
+<figure><video src="preview.mp4" controls autoplay muted playsinline poster="poster.png"></video><figcaption>红线是鼠标走过的轨迹，红色圆环是一次点击；底部文字是这一步在做什么。多个场景各自从应用初始状态开始。空格暂停，← → 逐段查看。</figcaption></figure>
+<figure class="shaky"><img src="01-connections-expanded.png" alt="连接树已展开，查看两个 SQLite 连接的数据库节点"><figcaption>⚠️ 进入查询页并显示事务入口 · 连接树已展开，查看两个 SQLite 连接的数据库节点</figcaption></figure>
+<figure class="shaky"><img src="02-orders-grid-open.png" alt="打开订单表后的数据网格，查看表格页与事务相关编辑状态入口"><figcaption>⚠️ 进入查询页并显示事务入口 · 打开订单表后的数据网格，查看表格页与事务相关编辑状态入口</figcaption></figure>
+<figure class="shaky"><img src="03-query-editor-running-state.png" alt="查看查询页中的执行与事务状态区域，作为提交前的参照"><figcaption>⚠️ 切换执行目标并保留新会话 · 查看查询页中的执行与事务状态区域，作为提交前的参照</figcaption></figure>
+<figure class="shaky"><img src="04-history-and-query-context.png" alt="查询历史与当前查询上下文，用来说明提交/切换动作发生的位置"><figcaption>⚠️ 切换执行目标并保留新会话 · 查询历史与当前查询上下文，用来说明提交/切换动作发生的位置</figcaption></figure>
+</main></html>

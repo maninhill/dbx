@@ -1,0 +1,54 @@
+{
+  "summary": "这次改动主要影响 SQL 编辑器的 OceanBase Oracle 列补全与元数据解析：会把同义词解析得到的实际目标身份传递到补全、诊断和表元数据缓存里，并区分当前 schema 与显式 owner。页面上可见的是编辑器补全、表信息与联动行为的变化，而不是新的独立页面。",
+  "scenes": [
+    {
+      "title": "编辑器补全中的同义词身份",
+      "shots": [
+        {
+          "file": "01-oceanbase-completion-context.png",
+          "caption": "查看编辑器里补全上下文与表名引用",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "表元数据使用解析后的目标身份",
+      "shots": [
+        {
+          "file": "02-events-grid-metadata.png",
+          "caption": "查看数据网格和表元数据区域，确认页面仍能正常加载大表",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "03-events-structure.png",
+          "caption": "查看表结构页，确认字段与表身份相关信息仍可展示",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "编辑器补全中的同义词身份 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "编辑器补全中的同义词身份 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "编辑器补全中的同义词身份 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "编辑器补全中的同义词身份 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "编辑器补全中的同义词身份 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"orders\" (0 in the page)",
+    "编辑器补全中的同义词身份 · click button[data-slot=\"button\"]: nothing visible matches button[data-slot=\"button\"] with \"SQL\" (0 in the page)",
+    "编辑器补全中的同义词身份 · type textarea, .cm-content: nothing visible matches textarea, .cm-content (0 in the page)",
+    "表元数据使用解析后的目标身份 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "表元数据使用解析后的目标身份 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"events\" (0 in the page)",
+    "表元数据使用解析后的目标身份 · click button[data-slot=\"button\"]: nothing visible matches button[data-slot=\"button\"] with \"结构\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到“补全、索引读取和后续行定位使用同一次解析得到的 owner、对象名与类型”“生产入口回归”“GUI 列补全”等，前端界面上没有新增专门按钮或独立入口可直接验证这些后端回归；另外也没有原生 Oracle 实库可展示其生产入口验收。",
+  "unseen": "这个改动针对 OceanBase Oracle 的同义词解析，但沙盒里只有 SQLite 连接，没有 OceanBase/Oracle 服务器库、DBLink、插件或 JDBC 驱动，因此无法直接在真实目标库上展示同义词、PUBLIC owner、隐藏对象遮蔽与跨 schema 解析效果。可以在 SQLite 表编辑/查询补全处看到同类元数据流转的 UI 行为，但不能验证 OceanBase 专属分支。",
+  "interactive": true
+}

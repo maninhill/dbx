@@ -1,0 +1,19 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>#11507 界面预览 · 9545e77</title>
+<style>:root{color-scheme:light dark;--bg:#f6f6f7;--fg:#1d1d1f;--muted:#6e6e73;--card:#fff;--line:#e5e5ea}
+@media (prefers-color-scheme:dark){:root{--bg:#111113;--fg:#f2f2f4;--muted:#9a9aa0;--card:#1c1c1f;--line:#2c2c30}}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 -apple-system,"Segoe UI","PingFang SC","Noto Sans CJK SC",sans-serif}
+main{max-width:1200px;margin:0 auto;padding:28px 16px 60px}h1{font-size:20px;margin:0 0 4px}.m{color:var(--muted);font-size:13px;margin:0 0 20px}
+.warn{margin:0 0 20px;padding:10px 14px;border:1px solid #c0392b;border-radius:10px;background:rgba(192,57,43,.07);color:#c0392b;font-size:14px}
+figure.shaky img{border-color:#c0392b}
+video,img{display:block;width:100%;border-radius:10px;border:1px solid var(--line);background:var(--card)}figure{margin:0 0 28px}figcaption{color:var(--muted);font-size:13px;margin-top:8px}
+a{color:inherit}</style>
+<main><h1>#11507 界面预览</h1><p class="m">commit 9545e77 · <a href="https://github.com/t8y2/dbx/pull/11507">回到 PR</a> · 这个 PR 把“立即备份”对话框的连接选择改成可多选，并在多连接时增加了范围和文件名限制提示；同时支持一次提交多个备份任务，结束后显示按成功/失败/取消汇总的提示。</p>
+<p class="warn">⚠️ 这次录制有 16 步没能按计划执行；带 ⚠️ 的截图拍摄于步骤失败之后，画面未必是说明文字所描述的状态。</p>
+<figure><video src="preview.mp4" controls autoplay muted playsinline poster="poster.png"></video><figcaption>红线是鼠标走过的轨迹，红色圆环是一次点击；底部文字是这一步在做什么。多个场景各自从应用初始状态开始。空格暂停，← → 逐段查看。</figcaption></figure>
+<figure class="shaky"><img src="01-one-shot-backup-dialog.png" alt="查看立即备份对话框的连接选择与基础表单"><figcaption>⚠️ 打开立即备份并多选连接 · 查看立即备份对话框的连接选择与基础表单</figcaption></figure>
+<figure class="shaky"><img src="02-multi-connection-selected.png" alt="查看多选后的连接计数、范围提示和多连接限制"><figcaption>⚠️ 打开立即备份并多选连接 · 查看多选后的连接计数、范围提示和多连接限制</figcaption></figure>
+<figure class="shaky"><img src="03-run-id-required-error.png" alt="查看多连接时必须包含 runId 的提示"><figcaption>⚠️ 验证多连接的文件名限制并开始备份 · 查看多连接时必须包含 runId 的提示</figcaption></figure>
+<figure class="shaky"><img src="04-multi-connection-ready.png" alt="查看开始备份按钮恢复可用的状态"><figcaption>⚠️ 验证多连接的文件名限制并开始备份 · 查看开始备份按钮恢复可用的状态</figcaption></figure>
+<figure class="shaky"><img src="05-batch-backup-summary.png" alt="查看批量备份完成后的汇总提示"><figcaption>⚠️ 验证多连接的文件名限制并开始备份 · 查看批量备份完成后的汇总提示</figcaption></figure>
+</main></html>

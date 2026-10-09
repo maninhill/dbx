@@ -1,0 +1,72 @@
+{
+  "summary": "这个 PR 把“立即备份”对话框的连接选择改成可多选，并在多连接时增加了范围和文件名限制提示；同时支持一次提交多个备份任务，结束后显示按成功/失败/取消汇总的提示。",
+  "scenes": [
+    {
+      "title": "打开立即备份并多选连接",
+      "shots": [
+        {
+          "file": "01-one-shot-backup-dialog.png",
+          "caption": "查看立即备份对话框的连接选择与基础表单",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "02-multi-connection-selected.png",
+          "caption": "查看多选后的连接计数、范围提示和多连接限制",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "验证多连接的文件名限制并开始备份",
+      "shots": [
+        {
+          "file": "03-run-id-required-error.png",
+          "caption": "查看多连接时必须包含 runId 的提示",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "04-multi-connection-ready.png",
+          "caption": "查看开始备份按钮恢复可用的状态",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "05-batch-backup-summary.png",
+          "caption": "查看批量备份完成后的汇总提示",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "打开立即备份并多选连接 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开立即备份并多选连接 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开立即备份并多选连接 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开立即备份并多选连接 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开立即备份并多选连接 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"customers\" (0 in the page)",
+    "打开立即备份并多选连接 · click button[data-slot=\"button\"]: nothing visible matches button[data-slot=\"button\"] with \"设置\" (0 in the page)",
+    "打开立即备份并多选连接 · click button[data-slot=\"button\"]: nothing visible matches button[data-slot=\"button\"] with \"数据库备份\" (0 in the page)",
+    "打开立即备份并多选连接 · click button[data-slot=\"button\"]: nothing visible matches button[data-slot=\"button\"] with \"立即备份\" (0 in the page)",
+    "打开立即备份并多选连接 · click button[data-backup-connection-picker]: nothing visible matches button[data-backup-connection-picker] (0 in the page)",
+    "打开立即备份并多选连接 · click button[role=\"checkbox\"]: nothing visible matches button[role=\"checkbox\"] with \"商店 Shop (SQLite)\" (0 in the page)",
+    "打开立即备份并多选连接 · click button[role=\"checkbox\"]: nothing visible matches button[role=\"checkbox\"] with \"分析 Analytics (SQLite)\" (0 in the page)",
+    "验证多连接的文件名限制并开始备份 · click button[data-backup-connection-picker]: nothing visible matches button[data-backup-connection-picker] (0 in the page)",
+    "验证多连接的文件名限制并开始备份 · click input[data-backup-file-name-pattern]: nothing visible matches input[data-backup-file-name-pattern] (0 in the page)",
+    "验证多连接的文件名限制并开始备份 · type input[data-backup-file-name-pattern]: nothing visible matches input[data-backup-file-name-pattern] (0 in the page)",
+    "验证多连接的文件名限制并开始备份 · type input[data-backup-file-name-pattern]: nothing visible matches input[data-backup-file-name-pattern] (0 in the page)",
+    "验证多连接的文件名限制并开始备份 · click button[data-slot=\"button\"]: nothing visible matches button[data-slot=\"button\"] with \"开始备份\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到“备份历史中单独记录”“某个连接入队失败不影响其余连接”“取消会取消整批任务”“添加计划对话框保持单选”等，这些都在实现和文案里有对应，但本地可见 UI 里不能直接验证后端是否真按历史逐条入账或串行执行，只能看到前端入口和提示。",
+  "unseen": "",
+  "interactive": true
+}

@@ -1,0 +1,26 @@
+{
+  "summary": "",
+  "scenes": [
+    {
+      "title": "应用主界面",
+      "shots": [
+        {
+          "file": "01-app.png",
+          "caption": "应用主界面",
+          "width": 2880
+        }
+      ],
+      "derailed": false
+    }
+  ],
+  "video": null,
+  "poster": null,
+  "errors": [
+    "plan: The operation was aborted due to timeout"
+  ],
+  "leak": false,
+  "skipped": "no plan",
+  "mismatch": "",
+  "unseen": "",
+  "interactive": false
+}

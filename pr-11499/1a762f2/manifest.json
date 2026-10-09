@@ -1,0 +1,45 @@
+{
+  "summary": "右侧 SQL 文件面板顶部新增了一个“定位当前标签文件”的按钮；它会在当前已打开的磁盘 SQL 文件可定位时展开父目录、滚动到目标文件并高亮。",
+  "scenes": [
+    {
+      "title": "打开 SQL 文件面板",
+      "shots": [
+        {
+          "file": "01-orders-grid.png",
+          "caption": "显示一个已打开的数据库表页，作为右侧面板可见时的上下文",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "定位当前打开的 SQL 文件",
+      "shots": [
+        {
+          "file": "02-sql-file-locate-result.png",
+          "caption": "显示文件树展开到当前文件并高亮定位后的状态",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "打开 SQL 文件面板 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开 SQL 文件面板 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开 SQL 文件面板 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "打开 SQL 文件面板 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main\" (0 in the page)",
+    "打开 SQL 文件面板 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"orders\" (0 in the page)",
+    "定位当前打开的 SQL 文件 · click button[data-slot=\"button\"]: nothing visible matches button[data-slot=\"button\"] with \"常用查询\" (0 in the page)",
+    "定位当前打开的 SQL 文件 · click button[aria-label=\"sidebar.locateActiveTab\"]: nothing visible matches button[aria-label=\"sidebar.locateActiveTab\"] (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到“复用现有图标和多语言提示”“不重新读取文件或切换标签”“目录尚在加载时禁用”等行为，diff 中只有按钮、定位逻辑和若干禁用条件；未体现任何新的提示文案或额外页面改动。",
+  "unseen": "",
+  "interactive": true
+}

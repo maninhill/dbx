@@ -1,0 +1,52 @@
+{
+  "summary": "这个 PR 改的是“同步选择”对话框：当没有同步密码时，受保护的凭据项不再显示为可勾选项，而是在相关分组里显示红色提示和锁图标；同时把“连接凭据/隧道凭据”作为汇总行加入加密分组，并修正计数与联动取消选择逻辑。",
+  "scenes": [
+    {
+      "title": "无密码时的提示与锁图标",
+      "shots": [
+        {
+          "file": "01-sync-selection-no-passphrase.png",
+          "caption": "查看没有同步密码时的同步选择对话框",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "凭据汇总行与计数",
+      "shots": [
+        {
+          "file": "02-sync-selection-credential-counts.png",
+          "caption": "查看加密分组里的连接凭据和隧道凭据计数",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "无密码时的提示与锁图标 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "无密码时的提示与锁图标 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "无密码时的提示与锁图标 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "无密码时的提示与锁图标 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "无密码时的提示与锁图标 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"customers\" (0 in the page)",
+    "无密码时的提示与锁图标 · click button: nothing visible matches button with \"设置\" (0 in the page)",
+    "无密码时的提示与锁图标 · click button: nothing visible matches button with \"同步\" (0 in the page)",
+    "无密码时的提示与锁图标 · click button: nothing visible matches button with \"本地备份\" (0 in the page)",
+    "凭据汇总行与计数 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "凭据汇总行与计数 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"customers\" (0 in the page)",
+    "凭据汇总行与计数 · click button: nothing visible matches button with \"设置\" (0 in the page)",
+    "凭据汇总行与计数 · click button: nothing visible matches button with \"同步\" (0 in the page)",
+    "凭据汇总行与计数 · click button: nothing visible matches button with \"本地备份\" (0 in the page)",
+    "凭据汇总行与计数 · click summary: nothing visible matches summary with \"加密\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到 Settings → Sync → WebDAV / Local backup，但代码只体现为云同步/本地备份的选择对话框本身，没有新增单独的设置页或 WebDAV 页面。",
+  "unseen": "",
+  "interactive": true
+}

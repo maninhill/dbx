@@ -1,0 +1,57 @@
+{
+  "summary": "这次改动只影响手动事务提交完成后的会话清理逻辑：如果用户在提交尚未返回时切换了模式/目标并开启了新的事务，旧提交结束时不再误删新事务会话和脏标记。界面上可观察的点是：事务状态在目标切换后提交完成时应保留为新会话，而不是回到空状态。",
+  "scenes": [
+    {
+      "title": "进入查询页并显示事务入口",
+      "shots": [
+        {
+          "file": "01-connections-expanded.png",
+          "caption": "连接树已展开，查看两个 SQLite 连接的数据库节点",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "02-orders-grid-open.png",
+          "caption": "打开订单表后的数据网格，查看表格页与事务相关编辑状态入口",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "切换执行目标并保留新会话",
+      "shots": [
+        {
+          "file": "03-query-editor-running-state.png",
+          "caption": "查看查询页中的执行与事务状态区域，作为提交前的参照",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "04-history-and-query-context.png",
+          "caption": "查询历史与当前查询上下文，用来说明提交/切换动作发生的位置",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "进入查询页并显示事务入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "进入查询页并显示事务入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "进入查询页并显示事务入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "进入查询页并显示事务入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "进入查询页并显示事务入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"orders\" (0 in the page)",
+    "切换执行目标并保留新会话 · click button: nothing visible matches button with \"运行\" (0 in the page)",
+    "切换执行目标并保留新会话 · click button: nothing visible matches button with \"查询历史\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到“SQL Server 的现有 session/epoch 处理不变”以及大量后端/Store 回归测试，这些都不是新增可见界面；另外“桌面本地 UI 受限、Web 传输拒绝手动事务方法”属于测试/运行限制，不是本 PR 在 UI 中新增的功能。",
+  "unseen": "这类 stale commit 竞态需要在提交尚未返回、同时切换事务模式/执行目标并重新开新手动事务的瞬间才可稳定复现；当前沙盒只有 SQLite 种子数据和 Web 版界面，且没有 Oracle/OceanBase/SQL Server 真实后端，也无法控制原生桌面版，因此只能展示事务相关界面入口，无法证明真实竞态在现场发生。",
+  "interactive": true
+}

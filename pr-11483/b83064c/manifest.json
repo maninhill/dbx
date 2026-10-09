@@ -1,0 +1,63 @@
+{
+  "summary": "OceanBase Oracle 的对象页和侧栏对象列表改为服务端按名称/注释/类型筛选后分页加载，并在列表底部显示已加载数量与“加载更多”。同时移除了该模式下的页内排序控件，正则搜索会直接提示不支持。",
+  "scenes": [
+    {
+      "title": "对象页的分页与注释搜索",
+      "shots": [
+        {
+          "file": "01-object-browser-place.png",
+          "caption": "对象页区域与工具栏位置",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "02-object-browser-bottom-area.png",
+          "caption": "对象页底部区域与筛选/分页相关位置",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "03-object-browser-closed-settings.png",
+          "caption": "对象页位置与底部区域",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "侧栏对象树的“加载更多”位置",
+      "shots": [
+        {
+          "file": "04-sidebar-object-tree-place.png",
+          "caption": "侧栏对象树区域与搜索框位置",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "05-sidebar-search-place.png",
+          "caption": "侧栏对象搜索入口与对象树位置",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "对象页的分页与注释搜索 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "对象页的分页与注释搜索 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "对象页的分页与注释搜索 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "对象页的分页与注释搜索 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "对象页的分页与注释搜索 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"customers\" (0 in the page)",
+    "对象页的分页与注释搜索 · click button: nothing visible matches button with \"设置\" (0 in the page)",
+    "侧栏对象树的“加载更多”位置 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到“对象页 / 侧栏”都按服务端筛选分页；但这次前端可见改动主要集中在对象浏览器和侧栏对象树，且仅 OceanBase Oracle 生效，其他数据库仍走原路径。",
+  "unseen": "沙盒里只有 SQLite，没有 OceanBase Oracle 连接，因此无法实际展示这个新分页/注释搜索逻辑在真实 OceanBase 对象页和侧栏中的效果；只能展示该界面位置。",
+  "interactive": true
+}

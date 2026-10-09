@@ -1,0 +1,54 @@
+{
+  "summary": "SQL 格式化设置面板新增了「排版风格」下拉框，可在 dbx 和 classic 两种排版引擎之间切换；同时设置导入/导出与版本兼容逻辑也更新，旧配置缺少新字段时会自动补默认值。文档和本地化字符串也同步加入了这一新选项。",
+  "scenes": [
+    {
+      "title": "打开 SQL 格式化设置",
+      "shots": [
+        {
+          "file": "01-sql-formatter-settings-form.png",
+          "caption": "查看 SQL 格式化设置表单",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "02-sql-formatter-layout-style-menu.png",
+          "caption": "查看排版风格选项",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "切换排版风格",
+      "shots": [
+        {
+          "file": "03-sql-formatter-layout-style-classic.png",
+          "caption": "切换后的排版风格选择器状态",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "打开 SQL 格式化设置 · click button: nothing visible matches button with \"设置\" (0 in the page)",
+    "打开 SQL 格式化设置 · click button: nothing visible matches button with \"SQL 格式化\" (0 in the page)",
+    "打开 SQL 格式化设置 · click button: nothing visible matches button with \"SQL 格式化\" (0 in the page)",
+    "打开 SQL 格式化设置 · click button: nothing visible matches button with \"SQL 格式化\" (0 in the page)",
+    "打开 SQL 格式化设置 · click div[role='combobox']: nothing visible matches div[role='combobox'] with \"排版风格\" (0 in the page)",
+    "切换排版风格 · click button: nothing visible matches button with \"设置\" (0 in the page)",
+    "切换排版风格 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "切换排版风格 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"customers\" (0 in the page)",
+    "切换排版风格 · click div[role='combobox']: nothing visible matches div[role='combobox'] with \"排版风格\" (0 in the page)",
+    "切换排版风格 · click [role='option']: nothing visible matches [role='option'] with \"经典\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到“没有 apply classic preset 动作”，diff 只体现在面板新增一个下拉框与其选项，确实没有看到额外的 preset 按钮；另外描述强调布局引擎切换后还要手动把 expressionWidth/fromClauseLayout 改回旧值，UI 上没有新增一键恢复旧样式的控件，这点与 diff 一致。",
+  "unseen": "",
+  "interactive": true
+}

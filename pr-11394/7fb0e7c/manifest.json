@@ -1,0 +1,63 @@
+{
+  "summary": "前端把已有触发器草稿的结构化编辑限制扩展到了 OceanBase Oracle：已有草稿现在与 Oracle 一样变为只读，而新建触发器草稿仍可结构化编辑。相关的 DDL 生成也补了 OceanBase Oracle 的已有触发器编辑警告和删除路径。",
+  "scenes": [
+    {
+      "title": "触发器结构编辑入口",
+      "shots": [
+        {
+          "file": "01-orders-grid-open.png",
+          "caption": "打开订单表后的数据网格",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "02-trigger-structure-editor.png",
+          "caption": "查看触发器结构编辑区域和已有触发器草稿位置",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "已有触发器编辑限制",
+      "shots": [
+        {
+          "file": "03-trigger-editor-placeholders.png",
+          "caption": "在表结构编辑器中查看触发器草稿列表与编辑区域位置",
+          "width": 2456,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    },
+    {
+      "title": "新建触发器仍可编辑",
+      "shots": [
+        {
+          "file": "04-query-editor-start.png",
+          "caption": "保留触发器编辑入口所在页面的位置",
+          "width": 2880
+        }
+      ],
+      "derailed": false
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "触发器结构编辑入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "触发器结构编辑入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "触发器结构编辑入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "触发器结构编辑入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "触发器结构编辑入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"orders\" (0 in the page)",
+    "触发器结构编辑入口 · click button: nothing visible matches button with \"表结构\" (0 in the page)",
+    "触发器结构编辑入口 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"triggers\" (0 in the page)",
+    "已有触发器编辑限制 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"常用查询\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到“删除及完整源码入口：保留”“前端编辑能力与既有后端保护一致”，这些更像行为结论；本 PR 代码层面能确认的是结构化编辑可用性判断和 SQL 生成规则，GUI 上是否存在某个专门的“源码入口”未在 diff 中体现。",
+  "unseen": "这个 sandbox 只有 SQLite 种子数据，没有 OceanBase Oracle 连接，无法在真实 GUI 里点出“已有 OceanBase Oracle 触发器草稿”来直接展示只读/可编辑的差异；只能在对应的触发器结构编辑器位置说明它应出现的位置。",
+  "interactive": true
+}

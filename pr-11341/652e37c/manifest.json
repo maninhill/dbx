@@ -1,0 +1,45 @@
+{
+  "summary": "结果网格的“加载全部”续取门控被改了：当结果已经被取尽时，第二次点加载全部会直接走定位末行的路径，不再重复发起追加请求。相关逻辑也补了单元测试，覆盖“标记已完成但 total 未知”“触顶但未取尽”等分支。",
+  "scenes": [
+    {
+      "title": "结果网格加载全部的重复点击",
+      "shots": [
+        {
+          "file": "01-events-grid-initial.png",
+          "caption": "打开 events 表后的数据网格",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "02-events-grid-after-first-loadall.png",
+          "caption": "第一次加载全部后的结果网格",
+          "width": 2880,
+          "warn": true
+        },
+        {
+          "file": "03-events-grid-after-second-loadall.png",
+          "caption": "第二次点击后的结果网格",
+          "width": 2880,
+          "warn": true
+        }
+      ],
+      "derailed": true
+    }
+  ],
+  "video": "preview.mp4",
+  "poster": "poster.png",
+  "errors": [
+    "结果网格加载全部的重复点击 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "结果网格加载全部的重复点击 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "结果网格加载全部的重复点击 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"events\" (0 in the page)",
+    "结果网格加载全部的重复点击 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"main 默认库\" (0 in the page)",
+    "结果网格加载全部的重复点击 · click div.connection-tree-content div: nothing visible matches div.connection-tree-content div with \"分析表 events\" (0 in the page)",
+    "结果网格加载全部的重复点击 · click button: nothing visible matches button with \"加载全部并转到末行\" (0 in the page)",
+    "结果网格加载全部的重复点击 · click button: nothing visible matches button with \"加载全部并转到末行\" (0 in the page)"
+  ],
+  "leak": false,
+  "skipped": null,
+  "mismatch": "描述里提到 PostgreSQL 17.4 实录、请求计数对照和 CI 沙盒预览截图，但这些都不是本次前端代码本身新增的 UI。",
+  "unseen": "这次改动的可见差异主要是“是否再次发请求”和“是否进入 loading”，在当前沙盒里没有网络请求面板，也没有后端可直接显示请求计数；只能通过结果网格在第二次点击时是否还出现加载状态、以及是否保持在末行来间接观察。",
+  "interactive": true
+}
